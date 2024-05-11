@@ -40,7 +40,7 @@ body {
 }
 
 .logo {
-    width: 75px; /* Adjust the width as needed */
+    width: 75px; 
     height: auto; /* Maintain aspect ratio */
     margin-left: 10px; /* Adjust the spacing between the header and the image */
     vertical-align: middle; /* Align the image vertically with the text */
