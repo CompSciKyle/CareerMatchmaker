@@ -1,0 +1,26 @@
+.styled-button {
+    background-image: linear-gradient(to right, #fd297b, #ff655b);; /* Green */
+    border: none;
+    color: #fefae0;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.styled-button:hover {
+    background-color: #9c3535; 
+}
+
+h1 {
+    color: #fd5564;
+}
+
+body {
+    background-color: #ffffff;
+}
