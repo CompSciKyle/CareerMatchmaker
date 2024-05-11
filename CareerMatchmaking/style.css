@@ -50,6 +50,7 @@ h5{
 }
 body {
     background-color: #ffffff;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -71,4 +72,67 @@ body {
 .header {
     display: flex; /* Use flexbox to align items horizontally */
     align-items: center; /* Align items vertically */
+}
+
+quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px; 
+    margin-left: 100px;
+}
+
+button[type="submit"] {
+    margin-left: 100px;
+    margin-top: 20px; 
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #fd297b, #ff655b);
+    transition-duration: 0.4s;
+}
+
+.card-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.card {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
