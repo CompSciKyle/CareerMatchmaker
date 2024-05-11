@@ -1,5 +1,5 @@
 .styled-button {
-    background-image: linear-gradient(to right, #fd297b, #ff655b);; /* Green */
+    background-image: linear-gradient(to right, #fd297b, #ff655b);
     border: none;
     color: #fefae0;
     padding: 10px 20px;
@@ -19,8 +19,34 @@
 
 h1 {
     color: #fd5564;
+
 }
 
+h5{
+    color: #a6a6a6;
+    margin-top: -17px;
+}
 body {
     background-color: #ffffff;
+}
+
+
+.container {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.logo {
+    width: 50px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 10px; /* Adjust the spacing between the header and the image */
+    vertical-align: middle; /* Align the image vertically with the text */
+}
+
+.header {
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Align items vertically */
 }
