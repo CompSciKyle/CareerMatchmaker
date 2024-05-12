@@ -1,31 +1,49 @@
-import express from "express"
+import express from "express";
 import OpenAI from "openai";
+import path from "path"; // Import the path module
 
-const openai = new OpenAI({ apiKey: 'sk-proj-9UAunGtj8sSbGO1CcRSBT3BlbkFJaM3cQX0sYKbxL9gD1Tt8' });
+const openai = new OpenAI({ apiKey: 'sk-proj-NfCYYHf2RGUrZ28BaQLHT3BlbkFJwkm7iyCiLmOiKvZA6rRP' });
 
-const app = express()
+const app = express();
 
+// Middleware to parse JSON bodies
+app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("Hello World, Server is Running")
-})
+    res.send("Hello World, Server is Running");
+});
 
-app.get("/ask", (req, res) => {
+app.get("/questions", (req, res) => {
+  // Send a file instead of plain texts
+  res.sendFile("/Users/thegreat/Desktop/CareerMatchmaker-1/CareerMatchmaking/quiz.html"); 
+});
+
+app.post("/ask", (req, res) => {
+    // Extract form data from the request body
+    const { q1, q2, q3, q4, q5, q6, q7, q8 } = req.body;
+
+    // Construct a question based on form inputs
+    const question = `My preferences: Programming languages - ${q1}, Computer science interest - ${q2}, Software development area - ${q3}, Work environment preference - ${q4}, Specialization - ${q5}, Location - ${q6}, Salary expectation - ${q7}, Experience - ${q8}. What career path would suit me best?`;
 
     async function main() {
-        const completion = await openai.chat.completions.create({
-          messages: [{ role: "system", content: req.query.question }],
-          model: "gpt-3.5-turbo",
-        });
-        console.log(completion.choices[0]);
+        try {
+            // Call OpenAI API for completion
+            const completion = await openai.chat.completions.create({
+                messages: [{ role: "system", content: question }],
+                model: "gpt-3.5-turbo",
+                max_tokens: 150
+            });
+            // res.json(completion.choices[0]);
+            res.json(completion.choices[0].message.content);
+        } catch (error) {
+            console.error("Error:", error);
+            res.status(500).send("Internal Server Error");
+        }
+    }
 
-        res.json(completion.choices[0])
-      }
-    
-    main()
-})
-
+    main();
+});
 
 app.listen(3000, () => {
-    console.log("server is running")
-})
+    console.log("server is running");
+});
