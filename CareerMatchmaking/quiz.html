@@ -7,6 +7,84 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+            fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text()) 
+            .then(html => {
+                document.body.innerHTML = html;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('quiz-form');
+            const questions = document.querySelectorAll('.question');
+            const nextButton = document.getElementById('next-button');
+            const prevButton = document.getElementById('prev-button');
+            const submitButton = document.getElementById('submit-button');
+            let currentQuestion = 0;
+    
+            function showQuestion(index) {
+                questions.forEach((question, idx) => {
+                    if (idx === index) {
+                        question.style.display = 'block';
+                    } else {
+                        question.style.display = 'none';
+                    }
+                });
+            }
+    
+            function showNextQuestion() {
+                const selectedOption = document.querySelector('input[name="q' + (currentQuestion + 1) + '"]:checked');
+                if (!selectedOption) {
+                    alert("Please select an option before proceeding.");
+                    return;
+                }
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    showQuestion(currentQuestion);
+                    if (currentQuestion === questions.length - 1) {
+                        nextButton.style.display = 'none';
+                        submitButton.style.display = 'block';
+                    }
+                    prevButton.style.display = 'block';
+                }
+            }
+    
+            function showPrevQuestion() {
+                currentQuestion--;
+                if (currentQuestion >= 0) {
+                    showQuestion(currentQuestion);
+                    if (currentQuestion === 0) {
+                        prevButton.style.display = 'none';
+                    }
+                    nextButton.style.display = 'block';
+                    submitButton.style.display = 'none';
+                }
+            }
+    
+            showQuestion(currentQuestion);
+    
+            nextButton.addEventListener('click', showNextQuestion);
+            prevButton.addEventListener('click', showPrevQuestion);
+        });
+</script>
     <h1 id="title-quiz">Computer Science Job Finding Form</h1>
     <div class="quiz">
     <form id="quiz-form" action="/ask" method="post">
@@ -90,60 +168,5 @@
         <button type="submit" id="submit-button" style="display: none;">Submit</button>
     </form>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('quiz-form');
-            const questions = document.querySelectorAll('.question');
-            const nextButton = document.getElementById('next-button');
-            const prevButton = document.getElementById('prev-button');
-            const submitButton = document.getElementById('submit-button');
-            let currentQuestion = 0;
-    
-            function showQuestion(index) {
-                questions.forEach((question, idx) => {
-                    if (idx === index) {
-                        question.style.display = 'block';
-                    } else {
-                        question.style.display = 'none';
-                    }
-                });
-            }
-    
-            function showNextQuestion() {
-                const selectedOption = document.querySelector('input[name="q' + (currentQuestion + 1) + '"]:checked');
-                if (!selectedOption) {
-                    alert("Please select an option before proceeding.");
-                    return;
-                }
-                currentQuestion++;
-                if (currentQuestion < questions.length) {
-                    showQuestion(currentQuestion);
-                    if (currentQuestion === questions.length - 1) {
-                        nextButton.style.display = 'none';
-                        submitButton.style.display = 'block';
-                    }
-                    prevButton.style.display = 'block';
-                }
-            }
-    
-            function showPrevQuestion() {
-                currentQuestion--;
-                if (currentQuestion >= 0) {
-                    showQuestion(currentQuestion);
-                    if (currentQuestion === 0) {
-                        prevButton.style.display = 'none';
-                    }
-                    nextButton.style.display = 'block';
-                    submitButton.style.display = 'none';
-                }
-            }
-    
-            showQuestion(currentQuestion);
-    
-            nextButton.addEventListener('click', showNextQuestion);
-            prevButton.addEventListener('click', showPrevQuestion);
-        });
-    </script>
 </body>
 </html>
