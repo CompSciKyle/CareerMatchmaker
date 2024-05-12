@@ -155,8 +155,14 @@ ol {
     list-style: none;
     padding: 0;
 }
+
 li {
     margin-bottom: 20px; 
+    margin-left: 90px;
+}
+
+.quiz p {
+    margin-bottom: 10px;
 }
 
 button[type="submit"] {
@@ -202,4 +208,9 @@ button[type="submit"] {
     margin-left: 10px; /* Adjust the spacing between the header and the image */
     vertical-align: middle; /* Align the image vertically with the text */
     margin-top: -10px;
+}
+
+#title-quiz {
+    margin: 30px;
+    font-size: 36px;
 }
