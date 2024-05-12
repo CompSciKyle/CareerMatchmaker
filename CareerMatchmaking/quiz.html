@@ -17,20 +17,20 @@
                 const data = {};
                 formData.forEach((value, key) => { data[key] = value; });
                 fetch('/ask', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+                 method: 'POST',
+                 headers: {'Content-Type': 'application/json'
+                },
+                
+                body: JSON.stringify(data)
                 })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    // Handle response here (e.g., show results or a confirmation message to the user)
+                .then(response => response.text())  // Correctly handle as text
+                .then(html => {
+                    document.body.innerHTML = html;  // Insert the HTML into the page
                 })
-                .catch((error) => {
+                .catch(error => {
                     console.error('Error:', error);
                 });
+
             });
         });
         </script>
