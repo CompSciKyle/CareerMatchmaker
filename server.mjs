@@ -1,6 +1,5 @@
 import express from "express";
 import OpenAI from "openai";
-import path from "path"; // Import the path module
 import {config} from "dotenv";
 
 config()
@@ -21,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.get("/questions", (req, res) => {
   // Send a file instead of plain texts
-  res.sendFile("/Users/thegreat/Desktop/CareerMatchmaker/CareerMatchmaking/quiz.html"); 
+  res.sendFile("/Users/kainathahmed/Desktop/CareerMatchmaker/CareerMatchmaking/quiz.html"); 
 });
 
 app.post("/ask", (req, res) => {
