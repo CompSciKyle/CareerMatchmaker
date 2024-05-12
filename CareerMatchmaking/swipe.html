@@ -23,9 +23,9 @@
                     },
                     body: JSON.stringify(data)
                 })
-                .then(response => response.text())  // Change here to handle text
+                .then(response => response.text()) 
                 .then(html => {
-                    document.body.innerHTML = html;  // Inject the HTML into the document
+                    document.body.innerHTML = html;
                 })
                 .catch((error) => {
                     console.error('Error:', error);
