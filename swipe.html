@@ -8,32 +8,6 @@
             <script src="career.js"></script>
         </head>
         <body>
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                const formData = new FormData(form);
-                const data = {};
-                formData.forEach((value, key) => { data[key] = value; });
-                fetch('/ask', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.text())
-                .then(data => {
-                    console.log('Success:', data);
-                    // Handle response here (e.g., show results or a confirmation message to the user)
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-        </script>
             <div class="card-container">
                 <div class="card" id="card1">
                     <h2>Based on your preferences and background, a career path as a Mobile App Developer specializing in DevOps and infrastructure could be a great fit for you. This role would allow you to leverage your expertise in JavaScript, along with your interest in Artificial Intelligence and Machine Learning, to develop mobile applications while also focusing on optimizing the development process through DevOps practices.
