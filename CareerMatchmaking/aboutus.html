@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="career.js"></script>
+    <title>About Us</title>
+    <style>
+        #font{
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        h2 {
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margine:0;
+        }
+        #center{
+            margin-bottom: 10px;
+            margin-left: 0;
+        }
+        .right-image {
+            position: absolute; 
+            top: 260px;
+            right: 200px;
+            width: 350px; 
+            height: auto; 
+        }
+    </style>
+</head>
+    <body>
+        <div class="container" id = "font">
+            <h1>About Us</h1>
+            <h2>Team Name: Rizz AI</h2>
+            <ul>
+                <li id = "center"><strong>Team Members:</strong></li>
+                <li id = "center">1. David Gomez - [2nd year sciences]</li>
+                <li id = "center">2. Zachary Dube - [2nd year compsci]</li>
+                <li id = "center">3. Kyle Fournier - [2nd year compsci]</li> 
+                <li id = "center">4. Kainath Ahmed - [2nd year compsci]</li>
+            </ul>
+            <h2>Introduction:</h2>
+            <p>We're team Rizz AI, a group of friends looking for a different programming experience  for the spring season and what better than to do it at the school we attend!</p>
+            <h2>Our Mission:</h2>
+            <p>Our mission is to use artificial intelligence in connecting students with employers, simplifying the recruitment process. Through our application, we aim to facilitate seamless matches between students seeking opportunities and companies in search of talent. With the use of AI, we strive to provide personalized recommendations and insights, enhancing the career prospects of students while optimizing recruitment for employers. Our goal is to create a mutually beneficial ecosystem where both students and companies thrive.</p>
+            
+        </div>
+        <img class="right-image" src="IMG_7935.jpg" alt="Team Munching">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="#" onclick="view()"><img src="logoAlt.png" id="small_logo" alt="logo" class="logo"></a></li>
+                <li><a href="#" onclick="aboutUs()">About Us</a></li>
+                <li><a href="#" onclick="services()">Services</a></li>
+                <li><a href="#" onclick="contact()">Contact</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>
