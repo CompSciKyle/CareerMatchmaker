@@ -5,90 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Assessment Form</title>
     <link rel="stylesheet" href="style.css"> 
-    <script src="career.js"></script>
+    <!-- <script src="career.js"></script> -->
 </head>
 <body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => { data[key] = value; });
+                fetch('/ask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // Handle response here (e.g., show results or a confirmation message to the user)
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+        </script>
+
     <h1>Career Assessment Form</h1>
     <div class="quiz">
-    <form action="swipe.html" method="post">
+    <form action="/ask" method="post">
         <ol>
             <li>
                 <p>Which programming languages are you most comfortable with?</p>
-                <label><input type="radio" name="q1" value="a">Python</label><br>
-                <label><input type="radio" name="q1" value="b">Java</label><br>
-                <label><input type="radio" name="q1" value="c">C++</label><br>
-                <label><input type="radio" name="q1" value="d">JavaScript</label>
+                <label><input type="radio" name="q1" value="Python">Python</label><br>
+                <label><input type="radio" name="q1" value="Java">Java</label><br>
+                <label><input type="radio" name="q1" value="C++">C++</label><br>
+                <label><input type="radio" name="q1" value="JavaScript">JavaScript</label>
             </li>
             <li>
                 <p>What aspect of computer science interests you the most?</p>
-                <label><input type="radio" name="q2" value="a">Software development</label><br>
-                <label><input type="radio" name="q2" value="b">Artificial Intelligence and Machine Learning</label><br>
-                <label><input type="radio" name="q2" value="c">Cybersecurity</label><br>
-                <label><input type="radio" name="q2" value="d">Data Science and Big Data</label>
+                <label><input type="radio" name="q2" value="Software development">Software development</label><br>
+                <label><input type="radio" name="q2" value="Artificial Intelligence and Machine Learning">Artificial Intelligence and Machine Learning</label><br>
+                <label><input type="radio" name="q2" value="Cybersecurity">Cybersecurity</label><br>
+                <label><input type="radio" name="q2" value="Data Science and Big Data">Data Science and Big Data</label>
             </li>
             <li>
                 <p>Which area of software development excites you the most?</p>
-                <label><input type="radio" name="q3" value="a">Web development</label><br>
-                <label><input type="radio" name="q3" value="b">Mobile app development</label><br>
-                <label><input type="radio" name="q3" value="c">Game development</label><br>
-                <label><input type="radio" name="q3" value="d">Desktop application development</label><br>        
+                <label><input type="radio" name="q3" value="Web development">Web development</label><br>
+                <label><input type="radio" name="q3" value="Mobile app development">Mobile app development</label><br>
+                <label><input type="radio" name="q3" value="Game development">Game development</label><br>
+                <label><input type="radio" name="q3" value="Desktop application development">Desktop application development</label><br>        
             </li>
 
 
             <li>
                 <p>What type of work environment do you prefer for coding?</p>
-                <label><input type="radio" name="q4" value="a">Quiet and focused</label><br>
-                <label><input type="radio" name="q4" value="b">Collaborative and team-oriented</label><br>
-                <label><input type="radio" name="q4" value="c">Flexible and dynamic</label><br>
-                <label><input type="radio" name="q4" value="d">Open and social</label><br>        
+                <label><input type="radio" name="q4" value="Quiet and focused">Quiet and focused</label><br>
+                <label><input type="radio" name="q4" value="Collaborative and team-oriented">Collaborative and team-oriented</label><br>
+                <label><input type="radio" name="q4" value="Flexible and dynamic">Flexible and dynamic</label><br>
+                <label><input type="radio" name="q4" value="Open and social">Open and social</label><br>        
             </li>
 
 
             <li>
                 <p>Which of the following areas would you like to specialize in?</p>
-                <label><input type="radio" name="q5" value="a">Backend development</label><br>
-                <label><input type="radio" name="q5" value="b">Frontend development</label><br>
-                <label><input type="radio" name="q5" value="c">Full-stack development</label><br>
-                <label><input type="radio" name="q5" value="d">DevOps and infrastructure</label><br>        
+                <label><input type="radio" name="q5" value="Backend development">Backend development</label><br>
+                <label><input type="radio" name="q5" value="Frontend development">Frontend development</label><br>
+                <label><input type="radio" name="q5" value="Full-stack development">Full-stack development</label><br>
+                <label><input type="radio" name="q5" value="DevOps and infrastructure">DevOps and infrastructure</label><br>        
             </li>
 
 
             <li>
                 <p>Where are you located?</p>
-                <label><input type="radio" name="q6" value="a">Quebec</label><br>
-                <label><input type="radio" name="q6" value="b">British Columbia</label><br>
-                <label><input type="radio" name="q6" value="c">Ontario</label><br>
-                <label><input type="radio" name="q6" value="d">PEI</label><br>
-                <label><input type="radio" name="q6" value="e">Alberta</label><br>
-                <label><input type="radio" name="q6" value="f">Manitoba</label><br>
-                <label><input type="radio" name="q6" value="g">Saskatchewan</label><br>
-                <label><input type="radio" name="q6" value="h">Newfoundland and Labrador</label><br>
-                <label><input type="radio" name="q6" value="i">Yukon</label><br>
-                <label><input type="radio" name="q6" value="j">Nunavut</label><br>
-                <label><input type="radio" name="q6" value="k">New Brunswick</label><br>   
-                <label><input type="radio" name="q6" value="l">Northwest Territories</label><br>
-                <label><input type="radio" name="q6" value="m">Remote</label><br>  
+                <label><input type="radio" name="q6" value="Quebec">Quebec</label><br>
+                <label><input type="radio" name="q6" value="British Columbia">British Columbia</label><br>
+                <label><input type="radio" name="q6" value="Ontario">Ontario</label><br>
+                <label><input type="radio" name="q6" value="PEI">PEI</label><br>
+                <label><input type="radio" name="q6" value="Alberta">Alberta</label><br>
+                <label><input type="radio" name="q6" value="Manitoba">Manitoba</label><br>
+                <label><input type="radio" name="q6" value="Saskatchewan">Saskatchewan</label><br>
+                <label><input type="radio" name="q6" value="Newfoundland and Labrador">Newfoundland and Labrador</label><br>
+                <label><input type="radio" name="q6" value="Yukon">Yukon</label><br>
+                <label><input type="radio" name="q6" value="Nunavut">Nunavut</label><br>
+                <label><input type="radio" name="q6" value="New Brunswick">New Brunswick</label><br>   
+                <label><input type="radio" name="q6" value="Northwest Territories">Northwest Territories</label><br>
+                <label><input type="radio" name="q6" value="Remote">Remote</label><br>  
             </li>
 
             <li>
                 <p>What salary would you want?</p>
-                <label><input type="radio" name="q7" value="a">$50,000 - $70,000</label><br>
-                <label><input type="radio" name="q7" value="b">$70,000 - $90,000</label><br>
-                <label><input type="radio" name="q7" value="c">$90,000 - $110,000</label><br>
-                <label><input type="radio" name="q7" value="d">More than $110,000</label><br>    
+                <label><input type="radio" name="q7" value="$50,000 - $70,000">$50,000 - $70,000</label><br>
+                <label><input type="radio" name="q7" value="$70,000 - $90,000">$70,000 - $90,000</label><br>
+                <label><input type="radio" name="q7" value="$90,000 - $110,000">$90,000 - $110,000</label><br>
+                <label><input type="radio" name="q7" value="More than $110,000<">More than $110,000</label><br>    
             </li>
 
             <li>
                 <p>What is your experience?</p>
-                <label><input type="radio" name="q8" value="a">Entry-level</label><br>
-                <label><input type="radio" name="q8" value="b">Intern</label><br>
-                <label><input type="radio" name="q8" value="c">Junior</label><br>
-                <label><input type="radio" name="q8" value="d">Senior</label><br>    
+                <label><input type="radio" name="q8" value="Entry-level">Entry-level</label><br>
+                <label><input type="radio" name="q8" value="Intern">Intern</label><br>
+                <label><input type="radio" name="q8" value="Junior">Junior</label><br>
+                <label><input type="radio" name="q8" value="Senior">Senior</label><br>    
             </li>
 
 
         </ol>
-        <button onclick="processForm()"type="submit">Submit</button>
+        <!-- <button onclick="processForm()"type="submit">Submit</button> -->
+        <button type="submit">Submit</button>
+
     </form>
     </div>
 </body>
