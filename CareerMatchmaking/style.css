@@ -4,7 +4,6 @@
 }
 
 
-
 .styled-button {
     background-image: linear-gradient(to right, #fd297b, #ff655b);
     border: none;
@@ -19,44 +18,40 @@
     cursor: pointer;
     border-radius: 50px;
 }
-#Question{
+
+/* #Question{
     font-size: 17px;
     font-weight: bold;
-}
+} */
 
 #style-title {
     margin: 0;
 }
 
-
-
-/*NAVBAR CSS*/
 .navbar {
     display: flex;
-    justify-content: center; /* Center the navigation bar horizontally */
-    width: 100%; /* Navbar spans the full width */
-    
-    background-size: 100% 50%, 100% 50%; /* Specify size for each layer */
-    background-repeat: no-repeat; /* Prevent repetition of the background */
+    justify-content: center; 
+    width: 100%;
+    background-size: 100% 50%, 100% 50%;
+    background-repeat: no-repeat; 
     color: white;
-    padding: 40px 0; /* Adjust padding as needed */     
+    padding: 40px 0;  
     background: linear-gradient(to bottom, rgba(253, 41, 123, 1), rgba(255, 101, 91, 0.0));       
     font-size: 40px;
 }
+
 .nav-list {
-    display: flex; /* Display list items in a row */
-    list-style: none; /* Remove default list styling */
+    display: flex; 
+    list-style: none;
     padding: 0;
     
 }
 
 .nav-list li {
     color: #000;
-    padding: 10px 20px; /* Space around each navigation item */
-    margin-top: -30px; /* Adjust this value to move the text higher */
-    justify-content: center; /* Center the navigation items horizontally */
-    
-    
+    padding: 10px 20px;
+    margin-top: -30px; 
+    justify-content: center;  
 }
 
 nav ul {
@@ -68,22 +63,18 @@ nav ul {
 nav ul li {
   display: inline;
   margin-right: -0px;
-
-
 }
 
 nav ul li a {
   display: inline-block;
   padding: 10px;
   text-decoration: none;
-  color: #ffffff; /* default text color */
+  color: #ffffff; 
   font-size: 25px;
-  
-  
 }
 
 nav ul li a:hover {
-  color: #f00; /* change text color on hover */
+  color: #f00; 
 }
 
 .styled-button:hover {
@@ -92,18 +83,17 @@ nav ul li a:hover {
 
 h1 {
     color: #fd5564;
-
 }
 
 h5{
     color: #a6a6a6;
     margin: 0;
 }
+
 body {
     background-color: #faf0e6;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 
 .container {
     position: absolute;
@@ -113,31 +103,27 @@ body {
     text-align: center;
 }
 
-
-
 .logo {
     width: 105px; 
-    height: auto; /* Maintain aspect ratio */
-    margin-left: 10px; /* Adjust the spacing between the header and the image */
-    vertical-align: middle; /* Align the image vertically with the text */
+    height: auto;
+    margin-left: 10px; 
+    vertical-align: middle; 
 }
 
 .companypara {
     position: fixed;
     top: -130%;
     left: -90%;
-    width: auto; /* Full width of the viewport */
-    height: 80vh; /* Full height of the viewport */
-    object-fit: contain; /* Ensure the GIF covers the entire viewport */
-    z-index: -1; /* Set the z-index to a value lower than other elements */
-    opacity: 0.2; /* Adjust opacity value as needed (0.0 to 1.0) */
-    
+    width: auto; 
+    height: 80vh; 
+    object-fit: contain;
+    z-index: -1;
+    opacity: 0.2;
 }
 
 .header {
-    display: flex; /* Use flexbox to align items horizontally */
-    align-items: center; /* Align items vertically */
-
+    display: flex; 
+    align-items: center;
 }
 
 .quiz {
@@ -237,10 +223,10 @@ button[type="button"] {
 
 #card1 p {
     color: whitesmoke;
-    background-color: rgba(225, 95, 95, 0.8); /* Slightly transparent to blend with gradient */
-    padding: 10px; /* Adds space around the text */
-    margin: 10px 0; /* Adds vertical spacing between paragraphs */
-    border-radius: 5px; /* Softens the edges of the paragraph boxes */
+    background-color: rgba(225, 95, 95, 0.8);
+    padding: 10px; 
+    margin: 10px 0; 
+    border-radius: 5px; 
 }
 
 .buttons {
@@ -252,9 +238,9 @@ button[type="button"] {
 
 #small_logo{
     width: 80px; 
-    height: auto; /* Maintain aspect ratio */
-    margin-left: 10px; /* Adjust the spacing between the header and the image */
-    vertical-align: middle; /* Align the image vertically with the text */
+    height: auto;
+    margin-left: 10px; 
+    vertical-align: middle;
     margin-top: -10px;
 }
 
@@ -277,9 +263,11 @@ li {
     margin-top: 21px;
     float: right;
 }
+
 #prev-button {
     float: left;
 }
+
 #submit-button {
     margin-top: 21px;
     float: right;
