@@ -7,53 +7,26 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                const formData = new FormData(form);
-                const data = {};
-                formData.forEach((value, key) => { data[key] = value; });
-                fetch('/ask', {
-                 method: 'POST',
-                 headers: {'Content-Type': 'application/json'
-                },
-                
-                body: JSON.stringify(data)
-                })
-                .then(response => response.text())  // Correctly handle as text
-                .then(html => {
-                    document.body.innerHTML = html;  // Insert the HTML into the page
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-
-            });
-        });
-        </script>
-
     <h1 id="title-quiz">Computer Science Job Finding Form</h1>
     <div class="quiz">
-    <form action="/ask" method="post">
-        <ol>
-            <li>
-                <p>Which programming languages are you most comfortable with?</p>
+    <form id="quiz-form" action="/ask" method="post">
+        <ol id="question-list">
+            <li class="question">
+                <p id="Question">Which programming languages are you most comfortable with?</p>
                 <label><input type="radio" name="q1" value="Python">Python</label><br>
                 <label><input type="radio" name="q1" value="Java">Java</label><br>
                 <label><input type="radio" name="q1" value="C++">C++</label><br>
                 <label><input type="radio" name="q1" value="JavaScript">JavaScript</label>
             </li>
-            <li>
-                <p>What aspect of computer science interests you the most?</p>
+            <li class="question">
+                <p id="Question">What aspect of computer science interests you the most?</p>
                 <label><input type="radio" name="q2" value="Software development">Software development</label><br>
                 <label><input type="radio" name="q2" value="Artificial Intelligence and Machine Learning">Artificial Intelligence and Machine Learning</label><br>
                 <label><input type="radio" name="q2" value="Cybersecurity">Cybersecurity</label><br>
                 <label><input type="radio" name="q2" value="Data Science and Big Data">Data Science and Big Data</label>
             </li>
-            <li>
-                <p>Which area of software development excites you the most?</p>
+            <li class="question">
+                <p id="Question">Which area of software development excites you the most?</p>
                 <label><input type="radio" name="q3" value="Web development">Web development</label><br>
                 <label><input type="radio" name="q3" value="Mobile app development">Mobile app development</label><br>
                 <label><input type="radio" name="q3" value="Game development">Game development</label><br>
@@ -61,8 +34,8 @@
             </li>
 
 
-            <li>
-                <p>What type of work environment do you prefer for coding?</p>
+            <li class="question">
+                <p id="Question">What type of work environment do you prefer for coding?</p>
                 <label><input type="radio" name="q4" value="Quiet and focused">Quiet and focused</label><br>
                 <label><input type="radio" name="q4" value="Collaborative and team-oriented">Collaborative and team-oriented</label><br>
                 <label><input type="radio" name="q4" value="Flexible and dynamic">Flexible and dynamic</label><br>
@@ -70,8 +43,8 @@
             </li>
 
 
-            <li>
-                <p>Which of the following areas would you like to specialize in?</p>
+            <li class="question">
+                <p id="Question">Which of the following areas would you like to specialize in?</p>
                 <label><input type="radio" name="q5" value="Backend development">Backend development</label><br>
                 <label><input type="radio" name="q5" value="Frontend development">Frontend development</label><br>
                 <label><input type="radio" name="q5" value="Full-stack development">Full-stack development</label><br>
@@ -79,8 +52,8 @@
             </li>
 
 
-            <li>
-                <p>Where are you located?</p>
+            <li class="question">
+                <p id="Question">Where are you located?</p>
                 <label><input type="radio" name="q6" value="Quebec">Quebec</label><br>
                 <label><input type="radio" name="q6" value="British Columbia">British Columbia</label><br>
                 <label><input type="radio" name="q6" value="Ontario">Ontario</label><br>
@@ -96,28 +69,81 @@
                 <label><input type="radio" name="q6" value="Remote">Remote</label><br>  
             </li>
 
-            <li>
-                <p>What salary would you want?</p>
+            <li class="question">
+                <p id="Question">What salary would you want?</p>
                 <label><input type="radio" name="q7" value="$50,000 - $70,000">$50,000 - $70,000</label><br>
                 <label><input type="radio" name="q7" value="$70,000 - $90,000">$70,000 - $90,000</label><br>
                 <label><input type="radio" name="q7" value="$90,000 - $110,000">$90,000 - $110,000</label><br>
                 <label><input type="radio" name="q7" value="More than $110,000<">More than $110,000</label><br>    
             </li>
 
-            <li>
-                <p>What is your experience?</p>
+            <li class="question">
+                <p id="Question">What is your experience?</p>
                 <label><input type="radio" name="q8" value="Entry-level">Entry-level</label><br>
                 <label><input type="radio" name="q8" value="Intern">Intern</label><br>
                 <label><input type="radio" name="q8" value="Junior">Junior</label><br>
                 <label><input type="radio" name="q8" value="Senior">Senior</label><br>    
             </li>
-
-
         </ol>
-        <!-- <button onclick="processForm()"type="submit">Submit</button> -->
-        <button type="submit">Submit</button>
-
+        <button type="button" id="prev-button" style="display: none;">Previous</button>
+        <button type="button" id="next-button">Next</button>
+        <button type="submit" id="submit-button" style="display: none;">Submit</button>
     </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('quiz-form');
+            const questions = document.querySelectorAll('.question');
+            const nextButton = document.getElementById('next-button');
+            const prevButton = document.getElementById('prev-button');
+            const submitButton = document.getElementById('submit-button');
+            let currentQuestion = 0;
+    
+            function showQuestion(index) {
+                questions.forEach((question, idx) => {
+                    if (idx === index) {
+                        question.style.display = 'block';
+                    } else {
+                        question.style.display = 'none';
+                    }
+                });
+            }
+    
+            function showNextQuestion() {
+                const selectedOption = document.querySelector('input[name="q' + (currentQuestion + 1) + '"]:checked');
+                if (!selectedOption) {
+                    alert("Please select an option before proceeding.");
+                    return;
+                }
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    showQuestion(currentQuestion);
+                    if (currentQuestion === questions.length - 1) {
+                        nextButton.style.display = 'none';
+                        submitButton.style.display = 'block';
+                    }
+                    prevButton.style.display = 'block';
+                }
+            }
+    
+            function showPrevQuestion() {
+                currentQuestion--;
+                if (currentQuestion >= 0) {
+                    showQuestion(currentQuestion);
+                    if (currentQuestion === 0) {
+                        prevButton.style.display = 'none';
+                    }
+                    nextButton.style.display = 'block';
+                    submitButton.style.display = 'none';
+                }
+            }
+    
+            showQuestion(currentQuestion);
+    
+            nextButton.addEventListener('click', showNextQuestion);
+            prevButton.addEventListener('click', showPrevQuestion);
+        });
+    </script>
 </body>
 </html>

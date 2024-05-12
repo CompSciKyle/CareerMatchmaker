@@ -17,6 +17,10 @@
     cursor: pointer;
     border-radius: 50px;
 }
+#Question{
+    font-size: 17px;
+    font-weight: bold;
+}
 
 #style-title {
     margin: 0;
@@ -156,7 +160,16 @@ ol {
     padding: 0;
 }
 
-button[type="submit"] {
+#submit-button {
+    padding: 10px 20px;
+    background-color: #14a11b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+
+button[type="button"] {
     margin-left: 100px;
     margin-top: 20px; 
     padding: 10px 20px;
@@ -165,7 +178,11 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     background-image: linear-gradient(to right, #fd297b, #ff655b);
-    transition-duration: 0.4s;
+}
+
+#prev-button {
+    margin-top: 15px; 
+    margin-left: -15px;
 }
 
 .card-container {
@@ -214,4 +231,16 @@ li {
 #title-quiz {
     margin: 30px;
     font-size: 36px;
+}
+
+#next-button {
+    margin-top: 21px;
+    float: right;
+}
+#prev-button {
+    float: left;
+}
+#submit-button {
+    margin-top: 21px;
+    float: right;
 }
