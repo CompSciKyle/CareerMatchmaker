@@ -5,6 +5,7 @@ import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
+
 // Proper handling of directory paths for Node.js ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,8 +38,8 @@ app.post("/ask", async (req, res) => {
     const { q1, q2, q3, q4, q5, q6, q7, q8 } = req.body;
 
     // Construct a question based on form inputs
-    const question = `My preferences: Programming languages - ${q1}, Computer science interest - ${q2}, Software development area - ${q3}, Work environment preference - ${q4}, Specialization - ${q5}, Location - ${q6}, Salary expectation - ${q7}, Experience - ${q8}. What career path would suit me best?`;
-
+    const question = `My preferences: Programming languages - ${q1}, Computer science interest - ${q2}, Software development area - ${q3}, Work environment preference - ${q4}, Specialization - ${q5}, Location - ${q6}, Salary expectation - ${q7}, Experience - ${q8}. What career path would suit me best? Output it in hte format of Job title: | Location: | Salary: | and Description: |`;
+   
     try {
         // Call OpenAI API for completion
         const completion = await openai.chat.completions.create({
@@ -47,23 +48,25 @@ app.post("/ask", async (req, res) => {
             max_tokens: 150
         });
 
+        let parts = completion.choices[0].message.content.split("|").map(part => part.trim());
+
         // Directly create and send HTML content
         res.send(`<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Generated Career Path</title>
+            <title>Generated Casreer Path</title>
             <link rel="stylesheet" href="style.css">
             <script src="career.js"></script>
         </head>
         <body>
             <div class="card-container">
                 <div class="card" id="card1">
-                    <h2>${completion.choices[0].message.content}</h2>
-                    <p>Company Location</p>
-                    <p>Salary</p>
-                    <p>Description</p>
+                    <h2>${parts[0]}</h2>
+                    <p>${parts[1]}</p>
+                    <p>${parts[2]}</p>
+                    <p>${parts[3]}</p>
                     <div class="buttons">
                         <button id="dislikeBtn">Dislike</button>
                         <button id="likeBtn">Like</button>
@@ -74,6 +77,7 @@ app.post("/ask", async (req, res) => {
         </html>`);
 
         console.log(completion.choices[0].message)
+
 
     } catch (error) {
         console.error("Error:", error);
