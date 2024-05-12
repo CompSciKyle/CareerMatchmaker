@@ -71,8 +71,8 @@ app.post("/ask", async (req, res) => {
                     <p>${parts[2]}</p>
                     <p>${parts[3]}</p>
                     <div class="buttons">
-                        <button id="dislikeBtn">Dislike</button>
-                        <button id="likeBtn">Like</button>
+                        <button img src="thumbsdown.jpg" id="dislikeBtn"></button>
+                        <button img src="thumbsup.jpg" id="likeBtn"></button>
                     </div>
                 </div>
             </div>
