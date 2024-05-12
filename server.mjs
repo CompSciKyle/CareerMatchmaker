@@ -1,8 +1,14 @@
 import express from "express";
 import OpenAI from "openai";
 import path from "path"; // Import the path module
+import {config} from "dotenv";
 
-const openai = new OpenAI({ apiKey: 'sk-proj-NfCYYHf2RGUrZ28BaQLHT3BlbkFJwkm7iyCiLmOiKvZA6rRP' });
+config()
+
+let apiKey = process.env.API_KEY
+
+const openai = new OpenAI({ apiKey });
+console.log(apiKey)
 
 const app = express();
 
@@ -15,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.get("/questions", (req, res) => {
   // Send a file instead of plain texts
-  res.sendFile("/Users/thegreat/Desktop/CareerMatchmaker-1/CareerMatchmaking/quiz.html"); 
+  res.sendFile("/Users/thegreat/Desktop/CareerMatchmaker/CareerMatchmaking/quiz.html"); 
 });
 
 app.post("/ask", (req, res) => {
