@@ -1,8 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .styled-button {
     background-image: linear-gradient(to right, #fd297b, #ff655b);
     border: none;
     color: #fefae0;
-    padding: 10px 20px;
+    padding: 15px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -10,29 +15,69 @@
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 50px;
 }
 
 #style-title {
     margin: 0;
 }
 
+
+
 /*NAVBAR CSS*/
 .navbar {
     display: flex;
     justify-content: center; /* Center the navigation bar horizontally */
     width: 100%; /* Navbar spans the full width */
+    
+    background-size: 100% 50%, 100% 50%; /* Specify size for each layer */
+    background-repeat: no-repeat; /* Prevent repetition of the background */
+    color: white;
+    padding: 40px 0; /* Adjust padding as needed */     
+    background: linear-gradient(to bottom, rgba(253, 41, 123, 1), rgba(255, 101, 91, 0.0));       
+    font-size: 40px;
 }
-
 .nav-list {
     display: flex; /* Display list items in a row */
     list-style: none; /* Remove default list styling */
     padding: 0;
+    
 }
 
 .nav-list li {
     color: #000;
     padding: 10px 20px; /* Space around each navigation item */
+    margin-top: -30px; /* Adjust this value to move the text higher */
+    justify-content: center; /* Center the navigation items horizontally */
+    
+    
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: -0px;
+
+
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  color: #ffffff; /* default text color */
+  font-size: 25px;
+  
+  
+}
+
+nav ul li a:hover {
+  color: #f00; /* change text color on hover */
 }
 
 .styled-button:hover {
@@ -62,16 +107,31 @@ body {
     text-align: center;
 }
 
+
+
 .logo {
-    width: 75px; 
+    width: 105px; 
     height: auto; /* Maintain aspect ratio */
     margin-left: 10px; /* Adjust the spacing between the header and the image */
     vertical-align: middle; /* Align the image vertically with the text */
 }
 
+.companypara {
+    position: fixed;
+    top: -160%;
+    left: -50%;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    object-fit: contain; /* Ensure the GIF covers the entire viewport */
+    z-index: -1; /* Set the z-index to a value lower than other elements */
+    opacity: 0.2; /* Adjust opacity value as needed (0.0 to 1.0) */
+    
+}
+
 .header {
     display: flex; /* Use flexbox to align items horizontally */
     align-items: center; /* Align items vertically */
+
 }
 
 .quiz {
@@ -83,6 +143,7 @@ body {
 
 h1 {
     text-align: center;
+    font-size: 65px;
 }
 
 form {
@@ -94,10 +155,8 @@ ol {
     list-style: none;
     padding: 0;
 }
-
 li {
     margin-bottom: 20px; 
-    margin-left: 100px;
 }
 
 button[type="submit"] {
@@ -135,4 +194,12 @@ button[type="submit"] {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+#small-logo{
+    width: 65px; 
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 10px; /* Adjust the spacing between the header and the image */
+    vertical-align: middle; /* Align the image vertically with the text */
+    margin-top: -10px;
 }
