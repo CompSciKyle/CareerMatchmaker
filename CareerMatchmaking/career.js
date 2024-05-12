@@ -1,5 +1,5 @@
 function startQuiz() {
-    window.location.href = "quiz.html";
+    window.location.href = "/questions";
 }
 
 function aboutUs(){
