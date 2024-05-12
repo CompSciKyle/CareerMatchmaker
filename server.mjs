@@ -24,8 +24,11 @@ const openai = new OpenAI({ apiKey });
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 
+app.use(express.static(path.join(__dirname, 'CareerMatchmaking')));
+
 app.get("/", (req, res) => {
-    res.send("Hello World, Server is Running");
+    // res.send("Hello World, Server is Running");
+    res.sendFile(path.join(__dirname, 'CareerMatchmaking/view.html'))
 });
 
 app.get("/questions", (req, res) => {

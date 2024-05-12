@@ -4,7 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Assessment Form</title>
-    <link rel="stylesheet" href="style.css"> 
+    <!-- <link rel="stylesheet" href="style.css">  -->
+    <style>
+        .styled-button {
+            background-image: linear-gradient(to right, #fd297b, #ff655b);
+            border: none;
+            color: #fefae0;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        #style-title {
+            margin: 0;
+        }
+
+        /*NAVBAR CSS*/
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the navigation bar horizontally */
+            width: 100%; /* Navbar spans the full width */
+        }
+
+        .nav-list {
+            display: flex; /* Display list items in a row */
+            list-style: none; /* Remove default list styling */
+            padding: 0;
+        }
+
+        .nav-list li {
+            color: #000;
+            padding: 10px 20px; /* Space around each navigation item */
+        }
+
+        .styled-button:hover {
+            background-color: #9c3535; 
+        }
+
+        h1 {
+            color: #fd5564;
+        }
+
+        h5 {
+            color: #a6a6a6;
+            margin: 0;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .logo {
+            width: 75px; 
+            height: auto; /* Maintain aspect ratio */
+            margin-left: 10px; /* Adjust the spacing between the header and the image */
+            vertical-align: middle; /* Align the image vertically with the text */
+        }
+
+        .header {
+            display: flex; /* Use flexbox to align items horizontally */
+            align-items: center; /* Align items vertically */
+        }
+
+        .quiz {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        ol {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px; 
+            margin-left: 100px;
+        }
+
+        button[type="submit"] {
+            margin-left: 100px;
+            margin-top: 20px; 
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #fd297b, #ff655b);
+            transition-duration: 0.4s;
+        }
+
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .card {
+            position: absolute;
+            background-color: white;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
     <!-- <script src="career.js"></script> -->
 </head>
 <body>
@@ -35,7 +174,7 @@
         });
         </script>
 
-    <h1>Career Assessment Form</h1>
+    <h1>Computer Science Job Finding Form</h1>
     <div class="quiz">
     <form action="/ask" method="post">
         <ol>
