@@ -118,10 +118,10 @@ body {
 
 .companypara {
     position: fixed;
-    top: -160%;
-    left: -50%;
-    width: 100vw; /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
+    top: -130%;
+    left: -90%;
+    width: auto; /* Full width of the viewport */
+    height: 80vh; /* Full height of the viewport */
     object-fit: contain; /* Ensure the GIF covers the entire viewport */
     z-index: -1; /* Set the z-index to a value lower than other elements */
     opacity: 0.2; /* Adjust opacity value as needed (0.0 to 1.0) */
@@ -154,15 +154,6 @@ form {
 ol {
     list-style: none;
     padding: 0;
-}
-
-li {
-    margin-bottom: 20px; 
-    margin-left: 90px;
-}
-
-.quiz p {
-    margin-bottom: 10px;
 }
 
 button[type="submit"] {
@@ -202,13 +193,23 @@ button[type="submit"] {
     margin-top: 20px;
 }
 
-#small-logo{
-    width: 65px; 
+#small_logo{
+    width: 80px; 
     height: auto; /* Maintain aspect ratio */
     margin-left: 10px; /* Adjust the spacing between the header and the image */
     vertical-align: middle; /* Align the image vertically with the text */
     margin-top: -10px;
 }
+
+li {
+    margin-bottom: 20px; 
+    margin-left: 90px;
+}
+
+.quiz p {
+    margin-bottom: 10px;
+}
+
 
 #title-quiz {
     margin: 30px;
