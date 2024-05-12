@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="career.js"></script>
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 2px solid #000; 
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #000;          
+            
+        }
+        th {
+            background-color: #f2f2f2;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+    <body>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="#" onclick="view()"><img src="logoAlt.png" id="small_logo" alt="logo" class="logo"></a></li>
+                <li><a href="#" onclick="aboutUs()">About Us</a></li>
+                <li><a href="#" onclick="services()">Services</a></li>
+                <li><a href="#" onclick="contact()">Contact</a></li>
+            </ul>
+        </nav>
+    </body>
+    <div class="container">
+        <h1>Premium Pricing</h1>
+        <table>
+            <tr>
+                <th>Plan</th>
+                <th>Price</th>
+                <th>Features</th>
+            </tr>
+            <tr>
+                <td>Basic</td>
+                <td>$9.99/month</td>
+                <td>Limit of 25 swipes a day<br>Verified Basic Profile Badge</td>
+            </tr>
+            <tr>
+                <td>Standard</td>
+                <td>$19.99/month</td>
+                <td>Limit of 50 swipes a day<br>Increased traffic to your profile<br>Verified Standard Profile Badge</td>
+            </tr>
+            <tr>
+                <td>Premium</td>
+                <td>$29.99/month</td>
+                <td>Limit of 100 swipes a day<br>Increased traffic to your profile<br>Advanced search features<br>Verified Premium Profile Badge<br></td>
+            </tr>
+        </table>
+    </div>
+</html>
