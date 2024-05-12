@@ -3,6 +3,8 @@
     padding: 0;
 }
 
+
+
 .styled-button {
     background-image: linear-gradient(to right, #fd297b, #ff655b);
     border: none;
@@ -98,7 +100,7 @@ h5{
     margin: 0;
 }
 body {
-    background-color: #ffffff;
+    background-color: #faf0e6;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -192,9 +194,32 @@ button[type="button"] {
     margin: auto;
 }
 
+
+#likeBtn {
+    width: 100px;
+    height: 100px;
+    background-image: url('thumbsup.jpg');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+}
+
+#dislikeBtn {
+    width: 100px;
+    height: 100px;
+    background-image: url('thumbsdown.jpg');
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+}
+
 .card {
     position: absolute;
-    background-color: white;
+    background-image: linear-gradient(to right, #fd297b, #ff655b);
     width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
@@ -204,11 +229,26 @@ button[type="button"] {
     transition: transform 0.3s ease;
 }
 
+#card1 h2 {
+    margin-bottom: 15px;
+    color: whitesmoke;
+    font-weight: 400;
+}
+
+#card1 p {
+    color: whitesmoke;
+    background-color: rgba(225, 95, 95, 0.8); /* Slightly transparent to blend with gradient */
+    padding: 10px; /* Adds space around the text */
+    margin: 10px 0; /* Adds vertical spacing between paragraphs */
+    border-radius: 5px; /* Softens the edges of the paragraph boxes */
+}
+
 .buttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
+
 
 #small_logo{
     width: 80px; 
