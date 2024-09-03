@@ -15,7 +15,6 @@ config();
 dotenv.config();
 
 const apiKey = process.env.API_KEY;
-console.log(apiKey);
 
 if (!apiKey) {
    console.error("API_KEY is not set in the environment variables");
