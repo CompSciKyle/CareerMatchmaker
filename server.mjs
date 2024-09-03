@@ -4,17 +4,19 @@ import { config } from "dotenv";
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import dotenv from 'dotenv';
 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 let liked_jobs = [];
 
-
 config();
-
+dotenv.config();
 
 const apiKey = process.env.API_KEY;
+console.log(apiKey);
+
 if (!apiKey) {
    console.error("API_KEY is not set in the environment variables");
    process.exit(1);
@@ -158,7 +160,7 @@ app.post("/ask", async (req, res) => {
        </html>`);
    } catch (error) {
        console.error("Error:", error);
-       res.status(500).send("Internal Server Error");
+       res.status(500).send("Insufficient Quota");
    }
 });
 
